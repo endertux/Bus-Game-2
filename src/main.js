@@ -1,6 +1,6 @@
 // Name: Helwa Halloum
 // Game: Bus Game 2
-// Completion Time: 2/15/24 (3hrs),
+// Completion Time: 20 hrs
 
 "use strict"
 
@@ -17,7 +17,7 @@ let config = {
             debug: true
         }
     },
-    scene: [ Load, Menu, Play, ]
+    scene: [ Load, Menu, Play, gameOver, Credits ]
 }
 
 let game = new Phaser.Game(config)
@@ -33,6 +33,8 @@ let w = game.config.width
 let h = game.config.height
 
 // reserve key bindings
-let keyLEFT, keyRIGHT, keyUP, keyDOWN, keyENTER
+let keyLEFT, keyRIGHT, keyUP, keyDOWN, keyENTER, keyW, keyD, keyA
 
+const BusVelocity = 200
+let bus = null
 let cursors;

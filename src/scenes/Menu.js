@@ -6,11 +6,15 @@ class Menu extends Phaser.Scene {
     preload() {
         // title screen
         this.load.image("title", './assets/background.png')
+        // game over
+        this.load.image('gameover', './assets/gameover.png')
+        // credits
+        this.load.image('cred', './assets/credits.png')
 
         // assets
         this.load.image('road', './assets/road.png')
         this.load.image('bus', './assets/bus.png')
-        this.load.image('kid', './assets/kid.png')
+        this.load.image('child', './assets/kid.png')
         this.load.image('grandma', './assets/grandma.png')
         this.load.image('hole', './assets/hole.png')
 

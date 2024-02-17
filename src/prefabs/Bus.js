@@ -11,5 +11,6 @@ class Bus extends Phaser.GameObjects.Sprite {
 
 
     update() {
+        this.x += this.moveSpeed
         }
     }

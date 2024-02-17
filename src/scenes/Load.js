@@ -9,8 +9,8 @@ class Load extends Phaser.Scene {
         let loadingBar = this.add.graphics();
         this.load.on('progress', (value) => {
             loadingBar.clear();                                 // reset fill/line style
-            loadingBar.fillStyle(0xFACADE, 1);                  // (color, alpha)
-            loadingBar.fillRect(0, centerY, w * value, 5);  // (x, y, w, h)
+            loadingBar.fillStyle(0xFFFF00, 1);                  // (color, alpha)
+            loadingBar.fillRect(0, centerY - 0, w * value, 0);  // (x, y, w, h)
         });
         this.load.on('complete', () => {
             loadingBar.destroy();

@@ -1,6 +1,6 @@
 class Child extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, velocity) {
-        super (scene, game.config.width + 64, Phaser.Math.Between(64, 32), 'Child')
+        super (scene, game.config.width + 150, Phaser.Math.Between(150, 250), 'Child')
 
         this.parentScene = scene
 
@@ -12,7 +12,7 @@ class Child extends Phaser.Physics.Arcade.Sprite {
     }
 
     update() {
-        if(this.newChild && this.x < (centerX * this.parentScene.ChildMulti) + 100) {
+        if(this.newChild && this.x < (centerX) + 100) {
             this.parentScene.addChild(this.parent, this.velocity)
             this.newChild = false
         }
