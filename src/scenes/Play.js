@@ -58,18 +58,20 @@ class Play extends Phaser.Scene {
         // define grandma
         this.grandma = 0
 
-        // child on streen
+        // child on street
         this.childGroup = this.add.group({
             runChildUpdate: true
         })
+        // grandma on street
+        this.grandmaGroup = this.add.group({
+            runChildUpdate: true
+        })
+
         this.time.delayedCall(1500, () => {
             this.addChild()
         })
         
-        // grandma on street
-        this.grandmaGroup = this.add.group({
-            rungrandmapdate: true
-        })
+        
         this.time.delayedCall(1500, () => {
             this.addGrandma()
         })
@@ -89,9 +91,9 @@ class Play extends Phaser.Scene {
 
     addGrandma() {
         let speedVary = Phaser.Math. Between(0, 50)
-        this.child = new Grandma(this, this.grandmaSpeed - speedVary, this.sprite).setScale()
-        this.grandmaGroup.add(this.child)
-        this.child.body.setAllowGravity(false)
+        this.grandma = new Grandma(this, this.grandmaSpeed - speedVary, this.sprite).setScale()
+        this.grandmaGroup.add(this.grandma)
+        this.grandma.body.setAllowGravity(false)
     }
 
     update() {
