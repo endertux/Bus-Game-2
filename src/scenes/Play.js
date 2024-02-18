@@ -4,7 +4,7 @@ class Play extends Phaser.Scene {
     }
 
     init() {
-        this.physics.world.gravity.y = 300
+        //this.physics.world.gravity.y = 100
     }
 
     create() {
@@ -41,17 +41,17 @@ class Play extends Phaser.Scene {
         Bus.setCollideWorldBounds(true);
         Bus.setBounce(0.5);
         Bus.setImmovable();
-        Bus.setMaxVelocity(0, 600);
-        Bus.setDragY(200);
-        Bus.setDepth(1);             // ensures that paddle z-depth remains above shadow paddles
+        Bus.setMaxVelocity(0, 500);
+        Bus.setDragY(100);
+        Bus.setDepth(3);             // ensures that paddle z-depth remains above shadow paddles
         Bus.destroyed = false;       // custom property to track paddle life
         // Bus.setBlendMode('SCREEN'); // transperency
 
         // define bus velocity
         this.BusVelocity = 100
 
-        this.childSpeed = -300
-        this.grandmaSpeed = -550
+        this.childSpeed = -360
+        this.grandmaSpeed = -200
 
         // define child
         this.child = 0
@@ -68,7 +68,7 @@ class Play extends Phaser.Scene {
         
         // grandma on street
         this.grandmaGroup = this.add.group({
-            runChildUpdate: true
+            rungrandmapdate: true
         })
         this.time.delayedCall(1500, () => {
             this.addGrandma()
@@ -89,8 +89,8 @@ class Play extends Phaser.Scene {
 
     addGrandma() {
         let speedVary = Phaser.Math. Between(0, 50)
-        this.child = new Grandma(this, this.childSpeed - speedVary).setScale()
-        this.childGroup.add(this.child)
+        this.child = new Grandma(this, this.grandmaSpeed - speedVary, this.sprite).setScale()
+        this.grandmaGroup.add(this.child)
         this.child.body.setAllowGravity(false)
     }
 
@@ -139,15 +139,20 @@ class Play extends Phaser.Scene {
     }
 
     moreGrandma() {
-        if(this.grandmaMult < 2) {
-            this.grandmaMulti += 0.1
-            console.log('more grandmas')
-        }
+        this.grandmaMulti += 3
+        this.spam = true
+
+            this.nograndmaTime = this.time.addEvent({
+                delay: Phaser.Math.Between(3000, 8000),
+                callbackScope: this,
+                loop: false
+            })   
+        
     }
 
     moreChild() {
-        this.childMulti += 2
-        this.frenzy = true
+        this.childMulti += 4
+        this.spam = true
 
         this.nochildTime = this.time.addEvent({
             delay: Phaser.Math.Between(3000, 8000),
@@ -158,8 +163,8 @@ class Play extends Phaser.Scene {
 
     stopChild() {
         this.childMulti = 1
-        this.frenzyMulti = 1
-        this.frenzy = false
+        this.spamMulti = 1
+        this.spam = false
 
     }
 

@@ -16,7 +16,7 @@ class gameOver extends Phaser.Scene {
             align: 'center'
         }
         // text
-        this.add.text(game.config.width/120, 120, 'Press D to restart, or A for credits, to Restart press D', ggConfig).setOrigin(0.5)
+        //this.add.text(game.config.width/50, 50, 'Press D to restart, or A for credits, to Restart press D', ggConfig).setOrigin(0.5)
 
         // define keys
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)
