@@ -81,14 +81,15 @@ class Play extends Phaser.Scene {
 
     addChild() {
         let speedVary = Phaser.Math. Between(0, 50)
-        this.child = new Child(this, this.childSpeed - speedVary).setScale()
+        this.child = new Child(this, this.childSpeed - speedVary, this.sprite).setScale()
         this.childGroup.add(this.child)
         this.child.body.setAllowGravity(false)
+        
     }
 
     addGrandma() {
         let speedVary = Phaser.Math. Between(0, 50)
-        this.child = new Child(this, this.childSpeed - speedVary).setScale()
+        this.child = new Grandma(this, this.childSpeed - speedVary).setScale()
         this.childGroup.add(this.child)
         this.child.body.setAllowGravity(false)
     }

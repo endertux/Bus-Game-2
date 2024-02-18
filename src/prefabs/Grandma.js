@@ -1,6 +1,6 @@
 class Grandma extends Phaser.Physics.Arcade.Sprite {
-    constructor(scene, velocity) {
-        super (scene, game.config.width + 150, Phaser.Math.Between(125, 250), 'Grandma')
+    constructor(scene, velocity, sprite) {
+        super (scene, game.config.width + 150, Phaser.Math.Between(125, 250), 'grandma')
 
         this.parentScene = scene
 
