@@ -91,6 +91,15 @@ class Play extends Phaser.Scene {
         // set up cusor keys
         cursors = this.input.keyboard.createCursorKeys();
 
+        // 20 sec after child
+        this.timer = this.time.addEvent({
+        delay: 20000,
+        callback: this.spamChild,
+        callbackScope: this,
+        loop: true
+        })
+        this.childSpam = 1
+
     }
 
     addChild() {
@@ -143,30 +152,26 @@ class Play extends Phaser.Scene {
        this.time.delayedCall(1500, () => {this.scene.start('gameOverScene')})
     }
 
-    moreGrandma() {
-        this.grandmaMulti += 3
-        this.spam = true
+   // moreGrandma() {
+       // this.grandmaMulti += 3
+       // this.spam = true
 
-            this.nograndmaTime = this.time.addEvent({
-                delay: Phaser.Math.Between(3000, 8000),
-                callbackScope: this,
-                loop: false
-            })   
+          //  this.nograndmaTime = this.time.addEvent({
+             //   delay: Phaser.Math.Between(3000, 8000),
+             //   callbackScope: this,
+             //   loop: false
+         //   })   
+        
+  //  }
+
+    spamChild() {
+        this.childSpam += 0.1
+        console.log('here comes the children')
         
     }
+    
 
-    moreChild() {
-        this.childMulti += 4
-        this.spam = true
-
-        this.nochildTime = this.time.addEvent({
-            delay: Phaser.Math.Between(3000, 8000),
-            callbackScope: this,
-            loop: false
-        })
-    }
-
-    stopChild() {
+    unspamChild() {
         this.childMulti = 1
         this.spamMulti = 1
         this.spam = false

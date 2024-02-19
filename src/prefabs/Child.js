@@ -12,7 +12,7 @@ class Child extends Phaser.Physics.Arcade.Sprite {
     }
 
     update() {
-        if(this.newChild && this.x < (centerX) + 100) {
+        if(this.newChild && this.x < (centerX * this.parentScene.childSpam) + 100) {
             this.parentScene.addChild(this.parent, this.velocity)
             this.newChild = false
         }
