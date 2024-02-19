@@ -36,6 +36,18 @@ class Play extends Phaser.Scene {
         // GAME OVER flag
         this.gameOver = false
 
+        // bus animations
+        this.anims.create({
+            key: 'drive',
+            frameRate: 6,
+            repeat: -1,
+            frames: this.anims.generateFrameNumbers('bus2', {
+                start: 0,
+                end: 1
+            })
+        })
+        drive.anims.play('drive')
+
         // set up player bus (physics sprite) and set properties
         Bus = this.physics.add.sprite(4, centerY, 'bus').setOrigin(0.5);
         Bus.setCollideWorldBounds(true);
@@ -120,7 +132,7 @@ class Play extends Phaser.Scene {
             this.physics.world.collide(Bus, this.childGroup, this.busCollision, null, this)
         
         }
-        
+
     busCollision() {
        // this.sound.play('', {
          //   volume: 10

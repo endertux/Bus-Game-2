@@ -1,6 +1,6 @@
 class Bus extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture, frame) {
-        super(scene, x, y, texture, frame)
+    constructor(scene, x, y, sprite, frame) {
+        super(scene, x, y, sprite, frame)
 
         scene.add.existing(this) //add object to existing scene
         this.isVroom = false   // track bus hit status

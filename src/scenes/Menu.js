@@ -15,6 +15,7 @@ class Menu extends Phaser.Scene {
         this.load.image('road', './assets/road.png')
         this.load.image('bus', './assets/bus.png')
         this.load.image('child', './assets/kid.png')
+        this.load.image('child2', './assets/bus2.png')
         this.load.image('grandma', './assets/grandma.png')
         this.load.image('hole', './assets/hole.png')
 
