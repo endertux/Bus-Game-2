@@ -33,7 +33,7 @@ let w = game.config.width
 let h = game.config.height
 
 // reserve key bindings
-let keyLEFT, keyRIGHT, keyUP, keyDOWN, keyENTER, keyW, keyD, keyA, keyRETURN
+let keyLEFT, keyRIGHT, keyUP, keyDOWN, keyENTER, keyW, keyD, keyA, keyE
 
 const BusVelocity = 200
 let bus = null
