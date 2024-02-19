@@ -46,11 +46,11 @@ class Play extends Phaser.Scene {
                 end: 1
             })
         })
-        drive.anims.play('drive')
 
         // set up player bus (physics sprite) and set properties
         Bus = this.physics.add.sprite(4, centerY, 'bus').setOrigin(0.5);
         Bus.setCollideWorldBounds(true);
+        Bus.anims.play('drive'),
         Bus.setBounce(0.5);
         Bus.setImmovable();
         Bus.setMaxVelocity(0, 500);
