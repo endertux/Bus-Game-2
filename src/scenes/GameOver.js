@@ -29,16 +29,19 @@ class gameOver extends Phaser.Scene {
         // W for menu
         if (Phaser.Input.Keyboard.JustDown(this.keyW)) {
             this.scene.start('menuScene')
+            this.sound.play('beep')
         }
 
         // D to restart
         if (Phaser.Input.Keyboard.JustDown(this.keyD)) {
             this.scene.start('playScene')
+            this.sound.play('beep')
         }
 
         // A to credits
         if (Phaser.Input.Keyboard.JustDown(this.keyA)) {
             this.scene.start('creditsScene')
+            this.sound.play('yay')
         }
     }
 }

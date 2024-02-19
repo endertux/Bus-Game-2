@@ -118,7 +118,7 @@ class Play extends Phaser.Scene {
     }
 
     update() {
-        this.road.tilePositionX -= -4
+        this.road.tilePositionX -= -5
 
         // START! check
         if (Phaser.Input.Keyboard.JustDown(keyENTER)) {
@@ -137,45 +137,48 @@ class Play extends Phaser.Scene {
             }
             
             // check for collisions
-            this.physics.world.collide(Bus, this.grandmaGroup, this.busCollision, null, this)
-            this.physics.world.collide(Bus, this.childGroup, this.busCollision, null, this)
+            this.physics.world.collide(Bus, this.grandmaGroup, this.gbusCollision, null, this)
+            this.physics.world.collide(Bus, this.childGroup, this.cbusCollision, null, this)
         
         }
 
-    busCollision() {
-       // this.sound.play('', {
-         //   volume: 10
-       // })
-       Bus.destroyed = true
 
-       this.gameOver = true
-       this.time.delayedCall(1500, () => {this.scene.start('gameOverScene')})
-    }
 
-   // moreGrandma() {
-       // this.grandmaMulti += 3
-       // this.spam = true
+    cbusCollision(Bus, child) {
+         this.sound.play('kidscream', {
+             volume: 1
+         })
+        Bus.destroyed = true
+ 
+        this.gameOver = true
+        if (this.gameOver = true) {
+            this.sound.play('crash')
+        }
 
-          //  this.nograndmaTime = this.time.addEvent({
-             //   delay: Phaser.Math.Between(3000, 8000),
-             //   callbackScope: this,
-             //   loop: false
-         //   })   
+        this.time.delayedCall(1500, () => {this.scene.start('gameOverScene')})
+        child.destroy()
+
+     }
+
+     gbusCollision(Bus, grandma) {
+         this.sound.play('ladyscream', {
+             volume: 2
+         })
+        Bus.destroyed = true
+ 
+        this.gameOver = true
+        if (this.gameOver = true) {
+            this.sound.play('crash')
+        }
         
-  //  }
+        this.time.delayedCall(1500, () => {this.scene.start('gameOverScene')})   
+        grandma.destroy()  
+    }
 
     spamChild() {
-        this.childSpam += 0.1
+        this.childSpam += 0.25
         console.log('here comes the children')
         
-    }
-    
-
-    unspamChild() {
-        this.childMulti = 1
-        this.spamMulti = 1
-        this.spam = false
-
     }
 
     }

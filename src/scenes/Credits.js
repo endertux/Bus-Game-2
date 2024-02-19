@@ -26,6 +26,9 @@ class Credits extends Phaser.Scene {
         // check for W input for menu
         if (Phaser.Input.Keyboard.JustDown(this.keyW)) {
             this.scene.start('menuScene')
+            this.sound.play('beep'), {
+                volume: 13
+            }
         }
     }
 }

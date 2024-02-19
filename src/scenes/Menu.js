@@ -24,6 +24,23 @@ class Menu extends Phaser.Scene {
 
         // load audio
         this.load.audio('music', './assets/music.mp3')
+
+        // sound effects
+            // https://freesound.org/people/Eponn/sounds/420356/
+        this.load.audio('crash', './assets/sound effects/crash.wav')
+        
+            //https://freesound.org/people/Kurck/sounds/319333/
+        this.load.audio('beep', './assets/sound effects/319333__kurck__toet.ogg')
+        
+            //https://freesound.org/people/JamesBradford/sounds/579896/
+        this.load.audio('kidscream', './assets/sound effects/kidscream.mp3')
+        
+            // https://freesound.org/search/?q=old+lady+scream&f=license%3A%22creative+commons+0%22&w=&tm=0&s=Automatic+by+relevance&advanced=0&g=1&only_p=&cm=0&mm=0
+        this.load.audio('ladyscream', './assets/sound effects/ladyscream.wav')
+
+            // https://freesound.org/people/Kurck/sounds/319335/
+        this.load.audio('yay','./assets/sound effects/319335__kurck__jeej.ogg')
+
     }
     
     create() {
@@ -33,7 +50,7 @@ class Menu extends Phaser.Scene {
         // Music
         // song: The Wheels On The Bus (metal cover by Leo Moracchioli)
             // https://www.youtube.com/watch?v=mGtYLRQh1Gk&ab_channel=FrogLeapStudios
-        this.bgMusic = this.sound.add('music', {volume: 0.5, loop: true})
+        this.bgMusic = this.sound.add('music', {volume: 0.1, loop: true})
 
         if (!this.musicPlayed) {
             this.bgMusic.play()
@@ -58,8 +75,7 @@ class Menu extends Phaser.Scene {
             //    gameTimer: 60000
             }
            
-            // this.sound.play('sfx-select')
-           // this.scene.start('playScene')
+             this.sound.play('beep')
         }
     }
 }
