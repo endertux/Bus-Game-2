@@ -66,7 +66,7 @@ class Menu extends Phaser.Scene {
     }
 
     update() {
-        if (Phaser.Input.Keyboard.JustDown(keyENTER)) {
+        if (Phaser.Input.Keyboard.JustDown(keyENTER, keyRETURN)) {
             // start next scene
             this.scene.start('playScene')
             
