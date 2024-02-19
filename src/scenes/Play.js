@@ -117,19 +117,10 @@ class Play extends Phaser.Scene {
             
             // check for collisions
             this.physics.world.collide(Bus, this.grandmaGroup, this.busCollision, null, this)
-            this.physics.world.collide(Bus, this.childGroup, this.childCollision, null, this)
+            this.physics.world.collide(Bus, this.childGroup, this.busCollision, null, this)
         
         }
-
-    childCollision(bus, child) {
-       // this.sound.play('', {
-        //    volume: 6.5
-        //})
-        child.alpha = 0
-        child.destroy()
-        this.gameOver = true
         
-    }
     busCollision() {
        // this.sound.play('', {
          //   volume: 10
