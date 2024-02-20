@@ -1,5 +1,5 @@
 class Child extends Phaser.Physics.Arcade.Sprite {
-    constructor(scene, velocity, sprite) {
+    constructor(scene, velocity, sprite, frame) {
         super (scene, game.config.width + 150, Phaser.Math.Between(50, 430), 'child')
 
         this.parentScene = scene

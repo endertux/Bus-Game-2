@@ -3,9 +3,8 @@ class Bus extends Phaser.GameObjects.Sprite {
         super(scene, x, y, sprite, frame)
 
         scene.add.existing(this) //add object to existing scene
-        this.isVroom = false   // track bus hit status
+        this.isVroom = false     // track bus hit status
         this.moveSpeed = 4       // bus speed in pixels/frame
-        //this.sfxShot = scene.sound.add('sfx-shot')
     }
 
 
